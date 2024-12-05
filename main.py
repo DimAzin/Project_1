@@ -26,5 +26,9 @@ def main():
     # Уведомление о сильных колебаниях
     dd.notify_if_strong_fluctuations(stock_data, threshold)
 
+    # Сохранение данных в CSV
+    filename = f"{ticker}_{period}_stock_data.csv"
+    dd.export_data_to_csv(stock_data, filename)
+
 if __name__ == "__main__":
     main()
