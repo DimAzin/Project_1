@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd1d8b22-88c8-413d-bbc4-d5a840007485" name="Changes" comment="Вывод средней цены за период &#10;Уведомляет пользователя, если цена акций колебалась более чем на % за период.&#10;&#10;В.2">
+    <list default="true" id="fd1d8b22-88c8-413d-bbc4-d5a840007485" name="Changes" comment="Вывод средней цены за период &#10;Уведомляет пользователя, если цена акций колебалась более чем на % за период.&#10;Выгружает данные в файл CSV&#10;&#10;В.3">
+      <change afterPath="$PROJECT_DIR$/AAPL_3mo_stock_data.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AAPL_3mo_stock_price_chart.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_download.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_download.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_plotting.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_plotting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,12 +107,21 @@
       <option name="project" value="LOCAL" />
       <updated>1733306764294</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Вывод средней цены за период &#10;Уведомляет пользователя, если цена акций колебалась более чем на % за период.&#10;Выгружает данные в файл CSV&#10;&#10;В.3">
+      <option name="closed" value="true" />
+      <created>1733389878006</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733389878006</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Вывод средней цены за период в.1" />
     <MESSAGE value="Вывод средней цены за период &#10;Уведомляет пользователя, если цена акций колебалась более чем на % за период.&#10;&#10;В.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Вывод средней цены за период &#10;Уведомляет пользователя, если цена акций колебалась более чем на % за период.&#10;&#10;В.2" />
+    <MESSAGE value="Вывод средней цены за период &#10;Уведомляет пользователя, если цена акций колебалась более чем на % за период.&#10;Выгружает данные в файл CSV&#10;&#10;В.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Вывод средней цены за период &#10;Уведомляет пользователя, если цена акций колебалась более чем на % за период.&#10;Выгружает данные в файл CSV&#10;&#10;В.3" />
   </component>
 </project>

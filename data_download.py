@@ -71,3 +71,43 @@ def export_data_to_csv(data, filename):
             print(f"Ошибка при сохранении данных в файл: {e}")
     else:
         print("Ошибка: данные должны быть в формате DataFrame.")
+
+
+def calculate_rsi(data, window=14):
+    """
+    Вычисляет индикатор RSI (Relative Strength Index).
+
+    :param data: DataFrame с колонкой 'Close'
+    :param window: Период для расчёта RSI
+    :return: DataFrame с добавленной колонкой 'RSI'
+    """
+    if 'Close' not in data.columns:
+        raise ValueError("Колонка 'Close' отсутствует в данных.")
+
+    delta = data['Close'].diff()
+    gain = (delta.where(delta > 0, 0)).rolling(window=window).mean()
+    loss = (-delta.where(delta < 0, 0)).rolling(window=window).mean()
+
+    rs = gain / loss
+    data['RSI'] = 100 - (100 / (1 + rs))
+    return data
+
+
+def calculate_macd(data, short_window=12, long_window=26, signal_window=9):
+    """
+    Вычисляет индикатор MACD (Moving Average Convergence Divergence).
+
+    :param data: DataFrame с колонкой 'Close'
+    :param short_window: Короткий период EMA
+    :param long_window: Длинный период EMA
+    :param signal_window: Период для сигнальной линии
+    :return: DataFrame с добавленными колонками 'MACD' и 'Signal_Line'
+    """
+    if 'Close' not in data.columns:
+        raise ValueError("Колонка 'Close' отсутствует в данных.")
+
+    short_ema = data['Close'].ewm(span=short_window, adjust=False).mean()
+    long_ema = data['Close'].ewm(span=long_window, adjust=False).mean()
+    data['MACD'] = short_ema - long_ema
+    data['Signal_Line'] = data['MACD'].ewm(span=signal_window, adjust=False).mean()
+    return data

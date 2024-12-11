@@ -29,3 +29,42 @@ def create_and_save_plot(data, ticker, period, filename=None):
 
     plt.savefig(filename)
     print(f"График сохранен как {filename}")
+
+
+def plot_with_indicators(data, ticker, period):
+    """
+    Визуализирует данные с индикаторами RSI и MACD.
+
+    :param data: DataFrame с колонками 'Close', 'RSI', 'MACD', 'Signal_Line'
+    :param ticker: Тикер акций
+    :param period: Период данных
+    """
+    plt.figure(figsize=(14, 10))
+
+    # График цены закрытия
+    plt.subplot(3, 1, 1)
+    plt.plot(data['Close'], label='Цена закрытия', color='blue')
+    plt.title(f'Цена закрытия {ticker} за период {period}')
+    plt.legend()
+
+    # График RSI
+    plt.subplot(3, 1, 2)
+    plt.plot(data['RSI'], label='RSI', color='purple')
+    plt.axhline(70, color='red', linestyle='--', label='Перекупленность (70)')
+    plt.axhline(30, color='green', linestyle='--', label='Перепроданность (30)')
+    plt.title('Индикатор RSI')
+    plt.legend()
+
+    # График MACD
+    plt.subplot(3, 1, 3)
+    plt.plot(data['MACD'], label='MACD', color='magenta')
+    plt.plot(data['Signal_Line'], label='Сигнальная линия', color='orange')
+    plt.axhline(0, color='black', linestyle='--')
+    plt.title('Индикатор MACD')
+    plt.legend()
+
+    plt.tight_layout()
+    filename = f"{ticker}_{period}_indicators.png"
+    plt.savefig(filename)
+    print(f"График сохранен как {filename}")
+    plt.show()
