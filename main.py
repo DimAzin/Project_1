@@ -3,16 +3,34 @@ import data_plotting as dplt
 
 
 def main():
+    # Запрос параметров от пользователя
     print("Добро пожаловать в инструмент получения и построения графиков биржевых данных.")
     print("Вот несколько примеров биржевых тикеров, которые вы можете рассмотреть: AAPL (Apple Inc), GOOGL (Alphabet Inc), MSFT (Microsoft Corporation), AMZN (Amazon.com Inc), TSLA (Tesla Inc).")
     print("Общие периоды времени для данных о запасах включают: 1д, 5д, 1мес, 3мес, 6мес, 1г, 2г, 5г, 10л, с начала года, макс.")
 
     ticker = input("Введите тикер акции (например, «AAPL» для Apple Inc):»")
-    period = input("Введите период для данных (например, '1mo' для одного месяца): ")
+
     threshold = float(input("Введите порог колебаний в процентах (например, 5): ").strip())
 
-    # Fetch stock data
-    stock_data = dd.fetch_stock_data(ticker, period)
+    print("\nУкажите временной период:")
+    print("1. Предустановленный период (например, '1mo', '3mo', '1y').")
+    print("2. Задать конкретные даты начала и окончания.")
+
+    choice = input("Выберите 1 или 2: ").strip()
+    start_date, end_date, period = None, None, None
+
+    if choice == '2':
+        start_date = input("Введите дату начала анализа (в формате 'YYYY-MM-DD'): ").strip()
+        end_date = input("Введите дату окончания анализа (в формате 'YYYY-MM-DD'): ").strip()
+    else:
+        period = input("Введите предустановленный период (например, '1mo', '3mo', '1y'): ").strip()
+
+    # Загрузка данных
+    try:
+        stock_data = dd.fetch_stock_data(ticker, start_date=start_date, end_date=end_date, period=period)
+    except ValueError as e:
+        print(f"Ошибка: {e}")
+        return
 
     # Add moving average to the data
     stock_data = dd.add_moving_average(stock_data)
