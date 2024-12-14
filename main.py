@@ -25,6 +25,10 @@ def main():
     else:
         period = input("Введите предустановленный период (например, '1mo', '3mo', '1y'): ").strip()
 
+        # Выбор стиля графика
+        print("\nДоступные стили графика: ['default', 'ggplot', 'seaborn', 'fivethirtyeight', 'bmh', 'grayscale']")
+        style = input("Введите стиль графика (по умолчанию 'default'): ").strip() or 'default'
+
     # Загрузка данных
     try:
         stock_data = dd.fetch_stock_data(ticker, start_date=start_date, end_date=end_date, period=period)
@@ -43,7 +47,7 @@ def main():
     dplt.create_and_save_plot(stock_data, ticker, period)
 
     # Визуализация с индикаторами
-    dplt.plot_with_indicators(stock_data, ticker, period)
+    dplt.plot_with_indicators(stock_data, ticker, period or f"{start_date}_to_{end_date}", style)
 
     # Вывод средней цены за период
     dd.calculate_and_display_average_price(stock_data)

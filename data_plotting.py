@@ -31,14 +31,22 @@ def create_and_save_plot(data, ticker, period, filename=None):
     print(f"График сохранен как {filename}")
 
 
-def plot_with_indicators(data, ticker, period):
+def plot_with_indicators(data, ticker, period, style='default'):
     """
-    Визуализирует данные с индикаторами RSI и MACD.
+    Визуализирует данные с индикаторами RSI и MACD с заданным стилем графика.
 
     :param data: DataFrame с колонками 'Close', 'RSI', 'MACD', 'Signal_Line'
     :param ticker: Тикер акций
     :param period: Период данных
+    :param style: Стиль графика (например, 'ggplot', 'seaborn', 'default')
     """
+    # Применение стиля
+    try:
+        plt.style.use(style)
+    except ValueError:
+        print(f"Предупреждение: Стиль '{style}' не найден. Используется стиль по умолчанию.")
+        plt.style.use('default')
+
     plt.figure(figsize=(14, 10))
 
     # График цены закрытия
