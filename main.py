@@ -55,6 +55,13 @@ def main():
     # Уведомление о сильных колебаниях
     dd.notify_if_strong_fluctuations(stock_data, threshold)
 
+    # Статистический анализ
+    statistics = dd.calculate_statistics(stock_data)
+    dd.display_statistics(statistics)
+
+    # Визуализация данных с дополнительными индикаторами
+    dplt.plot_with_statistics(stock_data, ticker, period or f"{start_date}_to_{end_date}", statistics, style)
+
     # Сохранение данных в CSV
     filename = f"{ticker}_{period}_stock_data.csv"
     dd.export_data_to_csv(stock_data, filename)

@@ -41,7 +41,11 @@
 
 - calculate_rsi(data, window=14): Вычисляет индикатор RSI (Relative Strength Index) и добавляет в DataFrame колонку с данными RSI.
 
-- calculate_macd(data, short_window=12, long_window=26, signal_window=9): Вычисляет индикатор MACD (Moving Average Convergence Divergence) и добавляет в DataFrame колонку с данными MACD.  
+- calculate_macd(data, short_window=12, long_window=26, signal_window=9): Вычисляет индикатор MACD (Moving Average Convergence Divergence) и добавляет в DataFrame колонку с данными MACD.
+
+- calculate_statistics(data): Рассчитывает статистические индикаторы для данных акций.
+
+- display_statistics(statistics): Выводит статистические показатели в консоль.
 
 - export_data_to_csv(data, filename): Позволяет сохранять загруженные данные об акциях в CSV файл.
  
@@ -55,6 +59,8 @@
 - create_and_save_plot(data, ticker, period, filename): Создаёт график, отображающий цены закрытия и скользящие средние. Предоставляет возможность сохранения графика в файл. Параметр filename опционален; если он не указан, имя файла генерируется автоматически.
 
 - plot_with_indicators(data, ticker, period, style='default'): Визуализирует данные с индикаторами RSI и MACD с заданным стилем графика.
+
+- plot_with_statistics(data, ticker, period, statistics, style='default'): Визуализирует данные с дополнительными статистическими индикаторами.
 
 Пошаговое использование
 

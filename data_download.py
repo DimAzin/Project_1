@@ -125,3 +125,34 @@ def calculate_macd(data, short_window=12, long_window=26, signal_window=9):
     data['MACD'] = short_ema - long_ema
     data['Signal_Line'] = data['MACD'].ewm(span=signal_window, adjust=False).mean()
     return data
+
+
+def calculate_statistics(data):
+    """
+    Рассчитывает статистические индикаторы для данных акций.
+
+    :param data: DataFrame с колонкой 'Close'
+    :return: Словарь со статистическими показателями
+    """
+    statistics = {
+        "mean_close": data['Close'].mean(),
+        "std_dev_close": data['Close'].std(),
+        "min_close": data['Close'].min(),
+        "max_close": data['Close'].max(),
+        "median_close": data['Close'].median(),
+    }
+    return statistics
+
+
+def display_statistics(statistics):
+    """
+    Выводит статистические показатели в консоль.
+
+    :param statistics: Словарь со статистическими показателями
+    """
+    print("\nСтатистический анализ данных:")
+    print(f"Средняя цена закрытия: {statistics['mean_close']:.2f}")
+    print(f"Стандартное отклонение цены закрытия: {statistics['std_dev_close']:.2f}")
+    print(f"Минимальная цена закрытия: {statistics['min_close']:.2f}")
+    print(f"Максимальная цена закрытия: {statistics['max_close']:.2f}")
+    print(f"Медианная цена закрытия: {statistics['median_close']:.2f}")

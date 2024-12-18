@@ -76,3 +76,43 @@ def plot_with_indicators(data, ticker, period, style='default'):
     plt.savefig(filename)
     print(f"График сохранен как {filename}")
     plt.show()
+
+
+def plot_with_statistics(data, ticker, period, statistics, style='default'):
+    """
+    Визуализирует данные с дополнительными статистическими индикаторами.
+
+    :param data: DataFrame с колонкой 'Close'
+    :param ticker: Тикер акций
+    :param period: Период данных
+    :param statistics: Словарь со статистическими показателями
+    :param style: Стиль графика (например, 'ggplot', 'seaborn', 'default')
+    """
+    try:
+        plt.style.use(style)
+    except ValueError:
+        print(f"Предупреждение: Стиль '{style}' не найден. Используется стиль по умолчанию.")
+        plt.style.use('default')
+
+    plt.figure(figsize=(10, 6))
+
+    # График цены закрытия
+    plt.plot(data['Close'], label='Цена закрытия', color='blue')
+
+    # Линии статистических индикаторов
+    mean = statistics['mean_close']
+    std_dev = statistics['std_dev_close']
+    plt.axhline(mean, color='orange', linestyle='--', label=f'Средняя цена ({mean:.2f})')
+    plt.axhline(mean + std_dev, color='red', linestyle='--', label=f'Средняя + std ({mean + std_dev:.2f})')
+    plt.axhline(mean - std_dev, color='green', linestyle='--', label=f'Средняя - std ({mean - std_dev:.2f})')
+
+    plt.title(f"Цена закрытия и статистика {ticker} за период {period}")
+    plt.xlabel('Дата')
+    plt.ylabel('Цена')
+    plt.legend()
+    plt.tight_layout()
+
+    filename = f"{ticker}_{period}_statistics.png"
+    plt.savefig(filename)
+    print(f"График с индикаторами сохранен как {filename}")
+    plt.show()
