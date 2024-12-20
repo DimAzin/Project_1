@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd1d8b22-88c8-413d-bbc4-d5a840007485" name="Changes" comment="">
+    <list default="true" id="fd1d8b22-88c8-413d-bbc4-d5a840007485" name="Changes" comment="Вывод средней цены за период &#10;Уведомляет пользователя, если цена акций колебалась более чем на % за период.&#10;Выгружает данные в файл CSV&#10;Расчет и визуализация RSI, MACD&#10;Возможность загрузки данных за произвольный период по диапазону дат&#10;Возможность выбора стиля графика&#10;Расчет и визуализация статистических параметров&#10;&#10;В.7">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AAPL_3mo_indicators.png" beforeDir="false" afterPath="$PROJECT_DIR$/AAPL_3mo_indicators.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AAPL_3mo_stock_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/AAPL_3mo_stock_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AAPL_3mo_stock_price_chart.png" beforeDir="false" afterPath="$PROJECT_DIR$/AAPL_3mo_stock_price_chart.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_download.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_download.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_plotting.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_plotting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -156,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734170321402</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Вывод средней цены за период &#10;Уведомляет пользователя, если цена акций колебалась более чем на % за период.&#10;Выгружает данные в файл CSV&#10;Расчет и визуализация RSI, MACD&#10;Возможность загрузки данных за произвольный период по диапазону дат&#10;Возможность выбора стиля графика&#10;Расчет и визуализация статистических параметров&#10;&#10;В.7">
+      <option name="closed" value="true" />
+      <created>1734531898083</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1734531898083</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -166,6 +169,7 @@
     <MESSAGE value="Вывод средней цены за период &#10;Уведомляет пользователя, если цена акций колебалась более чем на % за период.&#10;Выгружает данные в файл CSV&#10;Расчет и визуализация RSI, MACD&#10;&#10;В.4" />
     <MESSAGE value="Вывод средней цены за период &#10;Уведомляет пользователя, если цена акций колебалась более чем на % за период.&#10;Выгружает данные в файл CSV&#10;Расчет и визуализация RSI, MACD&#10;Возможность загрузки данных за произвольный период по диапазону дат&#10;&#10;В.5" />
     <MESSAGE value="Вывод средней цены за период &#10;Уведомляет пользователя, если цена акций колебалась более чем на % за период.&#10;Выгружает данные в файл CSV&#10;Расчет и визуализация RSI, MACD&#10;Возможность загрузки данных за произвольный период по диапазону дат&#10;Возможность выбора стиля графика&#10;&#10;В.6" />
-    <option name="LAST_COMMIT_MESSAGE" value="Вывод средней цены за период &#10;Уведомляет пользователя, если цена акций колебалась более чем на % за период.&#10;Выгружает данные в файл CSV&#10;Расчет и визуализация RSI, MACD&#10;Возможность загрузки данных за произвольный период по диапазону дат&#10;Возможность выбора стиля графика&#10;&#10;В.6" />
+    <MESSAGE value="Вывод средней цены за период &#10;Уведомляет пользователя, если цена акций колебалась более чем на % за период.&#10;Выгружает данные в файл CSV&#10;Расчет и визуализация RSI, MACD&#10;Возможность загрузки данных за произвольный период по диапазону дат&#10;Возможность выбора стиля графика&#10;Расчет и визуализация статистических параметров&#10;&#10;В.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="Вывод средней цены за период &#10;Уведомляет пользователя, если цена акций колебалась более чем на % за период.&#10;Выгружает данные в файл CSV&#10;Расчет и визуализация RSI, MACD&#10;Возможность загрузки данных за произвольный период по диапазону дат&#10;Возможность выбора стиля графика&#10;Расчет и визуализация статистических параметров&#10;&#10;В.7" />
   </component>
 </project>

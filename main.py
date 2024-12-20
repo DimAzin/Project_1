@@ -62,6 +62,9 @@ def main():
     # Визуализация данных с дополнительными индикаторами
     dplt.plot_with_statistics(stock_data, ticker, period or f"{start_date}_to_{end_date}", statistics, style)
 
+    # Интерактивный график
+    dplt.create_interactive_plot(stock_data, ticker, period or f"{start_date}_to_{end_date}", statistics)
+
     # Сохранение данных в CSV
     filename = f"{ticker}_{period}_stock_data.csv"
     dd.export_data_to_csv(stock_data, filename)

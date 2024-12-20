@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import plotly.graph_objects as go
 
 
 def create_and_save_plot(data, ticker, period, filename=None):
@@ -116,3 +117,64 @@ def plot_with_statistics(data, ticker, period, statistics, style='default'):
     plt.savefig(filename)
     print(f"График с индикаторами сохранен как {filename}")
     plt.show()
+
+
+def create_interactive_plot(data, ticker, period, statistics):
+    """
+    Создаёт интерактивный график с Plotly.
+
+    :param data: DataFrame с колонкой 'Close'
+    :param ticker: Тикер акций
+    :param period: Период данных
+    :param statistics: Словарь со статистическими показателями
+    """
+    fig = go.Figure()
+
+    # График цены закрытия
+    fig.add_trace(go.Scatter(
+        x=data.index,
+        y=data['Close'],
+        mode='lines',
+        name='Цена закрытия',
+        line=dict(color='blue')
+    ))
+
+    # Добавляем линии статистических индикаторов
+    mean = statistics['mean_close']
+    std_dev = statistics['std_dev_close']
+
+    fig.add_trace(go.Scatter(
+        x=data.index,
+        y=[mean] * len(data),
+        mode='lines',
+        name=f'Средняя цена ({mean:.2f})',
+        line=dict(color='orange', dash='dash')
+    ))
+
+    fig.add_trace(go.Scatter(
+        x=data.index,
+        y=[mean + std_dev] * len(data),
+        mode='lines',
+        name=f'Средняя + std ({mean + std_dev:.2f})',
+        line=dict(color='red', dash='dash')
+    ))
+
+    fig.add_trace(go.Scatter(
+        x=data.index,
+        y=[mean - std_dev] * len(data),
+        mode='lines',
+        name=f'Средняя - std ({mean - std_dev:.2f})',
+        line=dict(color='green', dash='dash')
+    ))
+
+    # Настройка оформления
+    fig.update_layout(
+        title=f"Интерактивный график {ticker} за период {period}",
+        xaxis_title="Дата",
+        yaxis_title="Цена закрытия",
+        legend=dict(yanchor="top", y=0.99, xanchor="left", x=0.01),
+        template="plotly_white",
+    )
+
+    # Показываем график
+    fig.show()

@@ -62,6 +62,8 @@
 
 - plot_with_statistics(data, ticker, period, statistics, style='default'): Визуализирует данные с дополнительными статистическими индикаторами.
 
+- create_interactive_plot(data, ticker, period, statistics): Создаёт интерактивный график с Plotly.
+
 Пошаговое использование
 
 1. Запустите main.py.
